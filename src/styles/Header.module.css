@@ -1,0 +1,95 @@
+a {
+  text-decoration: none;
+}
+hr { 
+  border: none;
+  background-color: #282828;
+  height: 1px;
+  margin: 8px 24px;
+}
+div {
+  color: white;
+}
+.txt,
+.pLT { 
+    font-family: DM Sans;
+}
+.pLT { 
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+.txt {
+  color: #b3b3b3;
+  font-size: 14px;
+  font-weight: 700;
+}
+.mainCont {
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+  height: 100%;
+  width: 390px;
+}
+.logo {
+  margin-bottom: 18px;
+}
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: #b3b3b3;
+}
+.cont,
+.pLT {
+  padding: 0 24px;
+}
+.pLT { 
+  height: 32px;
+}
+.sSg { 
+  flex-direction: column;
+  height: 610px;
+  overflow: scroll;
+}
+.navBar,
+.create,
+.liked,
+.menuCont,
+.playListIcon,
+.pLT,
+.sSg {
+  display: flex;
+}
+.navBar {
+  flex-direction: column;
+}
+.create,
+.like,
+.menuCont {
+  flex-direction: row;
+}
+.liked {
+  background-color: transparent;
+  border: none;
+  padding: 8px 24px;
+  width: 100%;
+}
+.create {
+  padding: 8px 24px;
+}
+.menuCont,
+.liked,
+.playListIcon,
+.create,
+.pLT {
+  align-items: center;
+}
+.menuCont {
+  height: 40px;
+  gap: 16px;
+}
+.playListCont {
+  margin-top: 24px;
+}
+.playListIcon {
+  margin-right: 16px;
+}

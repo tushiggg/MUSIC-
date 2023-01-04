@@ -1,0 +1,24 @@
+.App {
+  text-align: center;
+}
+
+.Cont { 
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  flex-grow: 1;
+}
+
+.gcs{ 
+  overflow: hidden;
+  height: 100vh;
+}
+.pageCont { 
+  width: 100%;
+}
+.mainCont {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
