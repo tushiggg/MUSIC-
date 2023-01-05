@@ -1,11 +1,13 @@
 import { Nav } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "../styles/Header.module.css";
 import { GrSpotify } from "react-icons/gr";
 import { AiFillPlusSquare } from "react-icons/ai";
 import { FcLike } from "react-icons/fc";
 import axios from "axios";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
+import { BiDotsHorizontalRounded } from "react-icons/bi";
+import Dropdown from "react-bootstrap/Dropdown";
 
 export const Header = (props) => {
   const [playList, setPlayList] = useState(null);
@@ -18,14 +20,6 @@ export const Header = (props) => {
       .post("http://localhost:8080/playlist", {})
       .then(() => {})
       .catch(() => {});
-  };
-
-  const handleClick = (e) => {
-    if (e.type === "click") {
-      console.log("Left click");
-    } else if (e.type === "contextmenu") {
-      console.log("Right click");
-    }
   };
   const deletePlaylist = () => {
     setCount((g = g + 1));
@@ -116,23 +110,38 @@ export const Header = (props) => {
             </Link>
             <hr></hr>
             <div className={styles.sSg}>
-              {playList ? (
-                playList.map((e, i) => {
-                  return (
-                    <Link to={`/playlist/${e._id}`}>
-                      <div
-                        className={styles.pLT}
-                        key={i + e.name}
-                        onContextMenu={handleClick}
-                      >
-                        {e.name}
+              <div style={{"width":"100%"}}>
+                {playList ? (
+                  playList.map((e, i) => {
+                    return (
+                      <div className={styles.pLT}>
+                        <Link to={`/playlist/${e._id}`}>
+                          <div key={i + e._id} className={styles.Tlt}>
+                            {e.name}
+                          </div>
+                        </Link>
+                        <Dropdown>
+                          <Dropdown.Toggle variant="flat">
+                          </Dropdown.Toggle>
+                          <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">
+                              Action
+                            </Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">
+                              Another action
+                            </Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">
+                              Something else
+                            </Dropdown.Item>
+                          </Dropdown.Menu>
+                        </Dropdown>
                       </div>
-                    </Link>
-                  );
-                })
-              ) : (
-                <></>
-              )}
+                    );
+                  })
+                ) : (
+                  <></>
+                )}
+              </div>
             </div>
           </div>
         </div>

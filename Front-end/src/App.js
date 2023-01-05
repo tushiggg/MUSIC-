@@ -14,6 +14,7 @@ import {
 // import { Signup, Login, Home } from "./pages";
 
 function App() {
+
   return (
     <>
       <div className="gcs">
@@ -31,13 +32,10 @@ function App() {
                   <Route path="/home" element={<Home></Home>}></Route>
                   <Route path="/search" element={<Search></Search>}></Route>
                   <Route
-                    path="/playlist/:id"
+                    path='/playlist/:id'
                     element={<PlayLists></PlayLists>}
                   ></Route>
                   <Route path="/tracks" element={<Tracks></Tracks>}></Route>
-                  {/* <Route path="/" element={<Home />} /> */}
-                  {/* <Route path="/signup" element={<Signup />} /> */}
-                  {/* <Route path="/login" element={<Login />} /> */}
                 </Routes>
               </div>
             </div>
