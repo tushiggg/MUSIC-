@@ -6,38 +6,35 @@ import { AiFillPlusSquare } from "react-icons/ai";
 import { FcLike } from "react-icons/fc";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { BiDotsHorizontalRounded } from "react-icons/bi";
 import Dropdown from "react-bootstrap/Dropdown";
 
 export const Header = (props) => {
   const [playList, setPlayList] = useState(null);
-  const [count, setCount] = useState(0);
-  var g = 0;
 
   const createPlaylist = () => {
-    setCount((g = g + 1));
     axios
       .post("http://localhost:8080/playlist", {})
       .then(() => {})
       .catch(() => {});
+    window.location.reload();
   };
-  const deletePlaylist = () => {
-    setCount((g = g + 1));
-    axios.delete(
-      "http://localhost:8080/playlist",
-      {}.then(() => {}).catch(() => {})
-    );
+  const deletePlaylist = (id) => {
+    console.log("zal");
+    axios
+      .delete(`http://localhost:8080/playlist/${id}`, {})
+      .then(() => {})
+      .catch(() => {});
+    window.location.reload();
   };
   useEffect(() => {
+    console.log("hi");
     axios
       .get("http://localhost:8080/playlist", {})
       .then((res) => {
         setPlayList(res.data);
       })
       .catch((err) => {});
-  }, [count]);
-
-  console.log(playList);
+  }, []);
 
   return (
     <>
@@ -110,7 +107,7 @@ export const Header = (props) => {
             </Link>
             <hr></hr>
             <div className={styles.sSg}>
-              <div style={{"width":"100%"}}>
+              <div style={{ width: "100%" }}>
                 {playList ? (
                   playList.map((e, i) => {
                     return (
@@ -121,18 +118,15 @@ export const Header = (props) => {
                           </div>
                         </Link>
                         <Dropdown>
-                          <Dropdown.Toggle variant="flat">
-                          </Dropdown.Toggle>
+                          <Dropdown.Toggle variant="flat"></Dropdown.Toggle>
                           <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">
-                              Action
+                            <Dropdown.Item
+                              onClick={() => deletePlaylist(e._id)}
+                            >
+                              Delete
                             </Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">
-                              Another action
-                            </Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">
-                              Something else
-                            </Dropdown.Item>
+                            <Dropdown.Item>Rename</Dropdown.Item>
+                            <Dropdown.Item>Edit Info</Dropdown.Item>
                           </Dropdown.Menu>
                         </Dropdown>
                       </div>

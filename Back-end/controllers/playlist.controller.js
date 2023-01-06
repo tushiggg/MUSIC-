@@ -37,6 +37,7 @@ const deletePlaylist = async (req, res) => {
   const id = req.params.id;
 
   n = n - 1;
+
   const del = await Playlist.deleteOne({ _id: id });
 
   res.send("deleted");
