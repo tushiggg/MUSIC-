@@ -7,6 +7,7 @@ const PlayListSchema = new Schema({
   creatorId: Schema.Types.ObjectId,
   createdAt: { type: Date, default: Date.now() },
   isPrivate: Boolean,
+  no: { type: Number, default: 0},
   songs: [{ type: Schema.Types.ObjectId, ref: "Song" }],
 });
 const Playlist = mongoose.model("Playlist", PlayListSchema);

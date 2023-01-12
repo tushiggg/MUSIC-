@@ -27,7 +27,6 @@ export const Header = (props) => {
     window.location.reload();
   };
   useEffect(() => {
-    console.log("hi");
     axios
       .get("http://localhost:8080/playlist", {})
       .then((res) => {
@@ -41,7 +40,7 @@ export const Header = (props) => {
       <Nav className={styles.mainCont}>
         <div style={{ paddingTop: "24px" }}>
           <div className={styles.cont}>
-            <Link>
+            <Link to="/">
               <div className={styles.logo}>
                 <GrSpotify
                   style={{ fill: "white", width: "40px", height: "40px" }}
@@ -75,7 +74,7 @@ export const Header = (props) => {
                 </svg>
                 <div className={styles.txt}>Search</div>
               </Link>
-              <Link to="/playlists" className={styles.menuCont}>
+              <Link to="/songs" className={styles.menuCont}>
                 <svg
                   fill="white"
                   role="img"
@@ -86,7 +85,7 @@ export const Header = (props) => {
                 >
                   <path d="M14.5 2.134a1 1 0 011 0l6 3.464a1 1 0 01.5.866V21a1 1 0 01-1 1h-6a1 1 0 01-1-1V3a1 1 0 01.5-.866zM16 4.732V20h4V7.041l-4-2.309zM3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zm6 0a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1z"></path>
                 </svg>
-                <div className={styles.txt}>Your Library</div>
+                <div className={styles.txt}>All Songs</div>
               </Link>
             </div>
           </div>
@@ -113,7 +112,7 @@ export const Header = (props) => {
                     return (
                       <div className={styles.pLT}>
                         <Link to={`/playlist/${e._id}`}>
-                          <div key={i + e._id} className={styles.Tlt}>
+                          <div key={e._id.toString()} className={styles.Tlt}>
                             {e.name}
                           </div>
                         </Link>

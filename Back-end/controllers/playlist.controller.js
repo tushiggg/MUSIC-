@@ -1,10 +1,9 @@
 const { Playlist } = require("../models");
 
-var n = 0;
-
 const createPlaylist = async (req, res) => {
   const body = req.body;
-  const lists = new Playlist({ name: `My Playlist #${n = n + 1}` });
+  console.log(body);
+  const lists = new Playlist({ name: `My PlayList # ` });
   const result = await lists.save();
   res.send(result);
 };
@@ -18,7 +17,7 @@ const getPlaylist = async (req, res) => {
   const id = req.params.id;
   const data = await Playlist.findById(id).populate("songs");
   res.send(data);
-};
+}; 
 
 const updatePlaylist = async (req, res) => {
   const playlistId = req.params.id;
@@ -35,8 +34,6 @@ const updatePlaylist = async (req, res) => {
 
 const deletePlaylist = async (req, res) => {
   const id = req.params.id;
-
-  n = n - 1;
 
   const del = await Playlist.deleteOne({ _id: id });
 

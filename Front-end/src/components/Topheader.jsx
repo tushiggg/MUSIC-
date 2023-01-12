@@ -35,7 +35,10 @@ export const Topheader = () => {
 
   return (
     <>
-      <div className={styles.cont}></div>
+      <div className={styles.cont}>
+        <div></div>
+        <div></div>
+      </div>
     </>
   );
 };

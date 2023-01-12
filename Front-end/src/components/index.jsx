@@ -1,4 +1,4 @@
-export * from "./Home"
+export * from "./Songs"
 export * from "./Footer"
 export * from "./Header"
 export * from "./Search"

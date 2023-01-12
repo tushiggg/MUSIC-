@@ -6,7 +6,7 @@ import styles from "../styles/PlayLists.module.css";
 
 export const PlayLists = () => {
   const params = useParams();
-  const [song, setSong] = useState(null);
+  const [songs, setSongs] = useState(null);
 
   const id = params.id;
 
@@ -14,15 +14,26 @@ export const PlayLists = () => {
     axios
       .get(`http://localhost:8080/playlist/${id}`, {})
       .then((res) => {
-        setSong(res.data);
+        console.log(res.data);
+        setSongs(res.data.songs);
       })
       .catch((err) => {});
   }, [id]);
 
-  console.log(song);
+  console.log(songs);
+
   return (
     <>
       <div className={styles.cont}>
+        {songs ? (
+          songs.map((e, i) => {
+            return <div>hi</div>;
+          })
+        ) : (
+          <>
+            <div>no playlists</div>
+          </>
+        )}
       </div>
     </>
   );

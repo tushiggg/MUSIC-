@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import {
   Footer,
-  Home,
   Header,
   Search,
   PlayLists,
@@ -10,8 +9,9 @@ import {
   Topheader,
   Login,
   Signup,
+  Songs
 } from "./components";
-// import { Signup, Login, Home } from "./pages";
+
 
 function App() {
 
@@ -29,8 +29,8 @@ function App() {
               <div className="pageCont">
                 <Topheader></Topheader>
                 <Routes>
-                  <Route path="/home" element={<Home></Home>}></Route>
                   <Route path="/search" element={<Search></Search>}></Route>
+                  <Route path="/songs" element={<Songs></Songs>}></Route>
                   <Route
                     path='/playlist/:id'
                     element={<PlayLists></PlayLists>}

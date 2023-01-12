@@ -17,10 +17,19 @@ div {
 .dropdown-toggle::after{ 
   content: none !important;
 }
+.dltBtn { 
+  border: none;
+  background-color: transparent;
+}
 .txt {
   color: #b3b3b3;
   font-size: 14px;
   font-weight: 700;
+}
+.dltPg { 
+ width: 420px;
+ height: 210px;
+ color: white;
 }
 .mainCont {
   display: flex;
@@ -105,3 +114,5 @@ div {
 .playListIcon {
   margin-right: 16px;
 }
+
+
