@@ -12,6 +12,7 @@ app.use(express.json());
 app.use("/playlist", routes.playlistRoute);
 app.use("/song", routes.songRoute);
 app.use("/artist", routes.artistRoute);
+app.use("/user", routes.userRoute);
 
 connect();
 

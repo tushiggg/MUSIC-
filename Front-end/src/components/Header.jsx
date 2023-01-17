@@ -113,12 +113,13 @@ export const Header = (props) => {
                       <div className={styles.pLT}>
                         <Link to={`/playlist/${e._id}`}>
                           <div key={e._id.toString()} className={styles.Tlt}>
-                            {e.name}{" "}{"#"}{i+1}
+                            {e.name} {"#"}
+                            {i + 1}
                           </div>
                         </Link>
                         <Dropdown>
                           <Dropdown.Toggle variant="flat"></Dropdown.Toggle>
-                          <Dropdown.Menu>
+                          <Dropdown.Menu style={{ overflow: "hidden" }}>
                             <Dropdown.Item
                               onClick={() => deletePlaylist(e._id)}
                             >
