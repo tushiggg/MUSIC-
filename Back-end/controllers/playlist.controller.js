@@ -3,7 +3,7 @@ const { Playlist } = require("../models");
 const createPlaylist = async (req, res) => {
   const body = req.body;
   console.log(body);
-  const lists = new Playlist({ name: `My PlayList # ` });
+  const lists = new Playlist({ name: `My PlayList` });
   const result = await lists.save();
   res.send(result);
 };
@@ -17,14 +17,14 @@ const getPlaylist = async (req, res) => {
   const id = req.params.id;
   const data = await Playlist.findById(id).populate("songs");
   res.send(data);
-}; 
+};
 
 const updatePlaylist = async (req, res) => {
   const playlistId = req.params.id;
   const songId = req.body.id;
 
   const playlist = await Playlist.findById(playlistId);
-  
+
   playlist.songs.push(songId);
 
   await playlist.save();

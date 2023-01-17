@@ -113,7 +113,7 @@ export const Header = (props) => {
                       <div className={styles.pLT}>
                         <Link to={`/playlist/${e._id}`}>
                           <div key={e._id.toString()} className={styles.Tlt}>
-                            {e.name}
+                            {e.name}{" "}{"#"}{i+1}
                           </div>
                         </Link>
                         <Dropdown>
