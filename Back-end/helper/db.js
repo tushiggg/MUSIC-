@@ -4,6 +4,7 @@ const url = "mongodb+srv://tushig5555:Tushig2005@cluster0.cpabp0j.mongodb.net/?r
 
 const connect = async () => { 
     try { 
+        mongoose.set("strictQuery", false );
         await mongoose.connect(url);
         console.log("successfully")
     }

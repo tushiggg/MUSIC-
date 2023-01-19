@@ -1,0 +1,1 @@
+module.exports.signToken = require("./token.services");
