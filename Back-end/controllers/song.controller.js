@@ -15,7 +15,9 @@ const createSong = async (req, res) => {
 };
 
 const getSongs = async (req, res) => {
-  const data = await Song.find({});
+  const { page, limit } = req.query;
+  console.log(page, limit);
+  const data = await Song.find({}).limit(10);
   res.send(data);
 };
 

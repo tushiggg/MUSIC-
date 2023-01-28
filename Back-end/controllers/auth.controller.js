@@ -4,7 +4,7 @@ const { signToken } = require("../services");
 
 const signUp = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { username, password, role } = req.body;
 
     if (!username || !password) {
       res.status(400).send("All input is required");
@@ -23,10 +23,6 @@ const signUp = async (req, res) => {
       password: encryptedPassword,
     });
 
-    const token = await signToken({ username });
-
-    user.token = token;
-
     await user.save();
 
     res.send(token);
@@ -37,7 +33,7 @@ const signUp = async (req, res) => {
 
 const loginUser = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { username, password, role } = req.body;
 
     if (!(username && password))
       return res.status(400).send("All input is required");
@@ -45,11 +41,11 @@ const loginUser = async (req, res) => {
     const user = await User.findOne({ username });
 
     if (await bcrypt.compare(password, user.password)) {
-      const token = await signToken({ username });
+      const token = await signToken({ username, role });
 
       user.token = token;
 
-      res.send(token);
+      res.setHeader("token",`${token}`);
     }
 
     res.status(401).json({ message: "password is wrong" });
